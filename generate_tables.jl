@@ -8,8 +8,8 @@ results_arr = []
 
 for (small,large) ∈ zip(small_fnames,large_fnames)
 
-    results1 = copy(DataFrame(Arrow.Table("data2/"*small)))
-    results2 = copy(DataFrame(Arrow.Table("data2/"*large))) 
+    results1 = copy(DataFrame(Arrow.Table("data/"*small)))
+    results2 = copy(DataFrame(Arrow.Table("data/"*large))) 
 
 
     temp1 = combine(groupby(results1, :algorithm), :runtime => median => :median_small)

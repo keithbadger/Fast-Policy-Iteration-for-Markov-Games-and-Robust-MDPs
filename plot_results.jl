@@ -37,7 +37,7 @@ filenames = ["games_all.arrow", "inventory_all.arrow", "ruin_all.arrow", "gridwo
 xmaxs = [2.,20,100,50,5,7000,Inf,800]
 
 for (filename, xmax) ∈ zip(filenames,xmaxs)
-    results = DataFrame(Arrow.Table("data2/"*filename))
+    results = DataFrame(Arrow.Table("data/"*filename))
     max_runs = combine(groupby(results, :algorithm), [:runtime,:times] => ((a,b) -> b[argmax(a)]) => :times, [:runtime,:errors] => ((a,b) -> b[argmax(a)]) => :errors )
     p = plot(yscale = :log, xlim = (0,xmax), xlabel = "Time (s)", ylabel = L"\psi_\infty(v)", size = (600,400))
     for (i,alg) ∈ enumerate(algorithms)
