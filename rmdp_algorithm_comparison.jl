@@ -54,11 +54,11 @@ function time_algorithm(alg,model,γ,ξ,W,ϵ,env,max_time)
         return Filar(model,γ,ξ,W,ϵ,env,max_time,alg.η,alg.β)
     elseif alg.name == "MP"
         return Mareks(model,γ,ξ,W,ϵ,env,max_time,alg.β)
-    elseif alg.name == "KB"
+    elseif alg.name == "RCPI∞"
         return Keiths(model,γ,ξ,W,ϵ,env,max_time)
-    elseif alg.name == "RCPI"
+    elseif alg.name == "RCPI₀"
         return RCPI(model,γ,ξ,W,ϵ,env,max_time)
-    elseif alg.name == "WIN"
+    elseif alg.name == "WS"
         return Winnicki(model,γ,ξ,W,ϵ,env,max_time,alg.H,alg.m)
     elseif alg.name == "PPI"
         return PPI(model,γ,ξ,W,ϵ,env,max_time,alg.β,alg.ϵ₂)

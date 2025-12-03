@@ -1,16 +1,15 @@
 using Plots, CSV, DataFrames, Statistics, Distributions, Arrow, LaTeXStrings,Latexify
 
 
-small_fnames = ["mg_all.arrow", "inv_all.arrow", "ruin_all.arrow", "grid_all.arrow"]
+small_fnames = ["games_all.arrow", "inventory_all.arrow", "ruin_all.arrow", "gridworld_all.arrow"]
 large_fnames = ["games_large.arrow", "inventory_large.arrow", "ruin_large.arrow", "gridworld_large.arrow"]
-
 
 results_arr = []
 
 for (small,large) ∈ zip(small_fnames,large_fnames)
 
-    results1 = copy(DataFrame(Arrow.Table("data/"*small)))
-    results2 = copy(DataFrame(Arrow.Table("data/"*large))) 
+    results1 = copy(DataFrame(Arrow.Table("data2/"*small)))
+    results2 = copy(DataFrame(Arrow.Table("data2/"*large))) 
 
 
     temp1 = combine(groupby(results1, :algorithm), :runtime => median => :median_small)

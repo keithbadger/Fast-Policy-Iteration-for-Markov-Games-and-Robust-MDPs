@@ -28,11 +28,11 @@ function time_algorithm_games(alg,P,R,γ,ϵ,env,time_limit)
         return Filar(P,R,γ,ϵ,env,time_limit,alg.η,alg.β)
     elseif alg.name == "MP"
         return Mareks(P,R,γ,ϵ,env,time_limit,alg.β)
-    elseif alg.name == "KB"
+    elseif alg.name == "RCPI∞"
         return Keiths(P,R,γ,ϵ,env,time_limit)
-    elseif alg.name == "RCPI"
+    elseif alg.name == "RCPI₀"
         return RCPI(P,R,γ,ϵ,env,time_limit)
-    elseif alg.name == "WIN"
+    elseif alg.name == "WS"
         return Winnicki(P,R,γ,ϵ,env,time_limit,alg.H,alg.m)
     elseif alg.name == "PPI"
         return PPI(P,R,γ,ϵ,env,time_limit,alg.ϵ₂,alg.β)
